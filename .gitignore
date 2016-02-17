@@ -60,3 +60,8 @@ target/
 
 #Ipython Notebook
 .ipynb_checkpoints
+
+# Generated Files from https://github.com/guokr/swagger-py-codegen
+routes.py
+schemas.py
+validators.py

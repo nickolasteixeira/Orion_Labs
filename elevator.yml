@@ -1,0 +1,49 @@
+---
+  swagger: "2.0"
+  info:
+    description: "Elevator Control API"
+    version: "1.0.0"
+    title: "Lifty"
+    contact:
+      email: "nelz@orionlabs.io"
+  basePath: "/v1"
+  schemes:
+    - "http"
+  consumes:
+    - "application/json"
+  produces:
+    - "application/json"
+  paths:
+    /welcome:
+      get:
+        summary: "welcome"
+        description: "Simple welcome message to verify service is up"
+        operationId: "welcome"
+        responses:
+          200:
+            description: "successful connection"
+            schema:
+              type: "object"
+              required:
+                - "msg"
+              properties:
+                msg:
+                  type: "string"
+              additionalProperties: false
+    /floor_count:
+      get:
+        summary: "Number of stops"
+        description: "Total number of stops in this elevator"
+        operationId: "floor_count"
+        responses:
+          200:
+            description: "count"
+            schema:
+              type: "object"
+              required:
+                - "count"
+              properties:
+                count:
+                  type: "integer"
+                  format: "int32"
+              additionalProperties: false
