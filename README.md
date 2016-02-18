@@ -27,7 +27,7 @@ boilerplate code. This is what we will play with in these exercises. Drop into
 either the `py-ele` or `go-ele` directories for instructions on running the
 generation.
 
-# Implementation Tasks
+# Design & Implementation Tasks
 We chose to model an elevator in the hopes that the interactions are fairly well
 understood by just about everyone. There will be some functionalities already
 provided, but you'll need to design and implement some of the main functionalities.

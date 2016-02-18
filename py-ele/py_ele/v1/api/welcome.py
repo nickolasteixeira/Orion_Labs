@@ -9,4 +9,4 @@ class Welcome(Resource):
 
     def get(self):
 
-        return {'msg': 'something'}, 200, None
+        return {'msg': 'Welcome to the elevator-server example project!'}, 200, None
