@@ -47,3 +47,55 @@
                   type: "integer"
                   format: "int32"
               additionalProperties: false
+    /car/{car_id}/floor/current:
+      get:
+        summary: "Current Floor"
+        description: "What floor is the car currently on"
+        operationId: "currentFloor"
+        parameters:
+          -
+            name: "car_id"
+            in: "path"
+            description: "The ID of the car we are investigating"
+            required: true
+            type: "string"
+        responses:
+          200:
+            description: "floor"
+            schema:
+              type: "object"
+              additionalProperties: false
+              properties:
+                name:
+                  type: "string"
+                id:
+                  type: "string"
+          404:
+            description: "Not Found"
+    /admin/inventory/{pwd}:
+      get:
+        summary: "List Floor and Car IDs"
+        description: "Operator Ease-Of-Use: List out Floor and Car identifiers"
+        operationId: "inventory"
+        parameters:
+          -
+            name: "pwd"
+            in: "path"
+            description: "The password is `p4ssw3rd`"
+            required: true
+            type: "string"
+        responses:
+          200:
+            description: "count"
+            schema:
+              type: "array"
+              items:
+                additionalProperties: false
+                type: "object"
+                properties:
+                  name:
+                    type: "string"
+                  id:
+                    type: "string"
+          401:
+            description: "not authorized"
