@@ -29,7 +29,8 @@ generation.
 
 # Design & Implementation Tasks
 We chose to model an elevator in the hopes that the interactions are fairly well
-understood by just about everyone. There will be some functionalities already
+understood by just about everyone. There will be some secondary/support
+functionalities already
 provided, but you'll need to design and implement some of the main functionalities.
 Here are a few questions to get you thinking about what might be needed:
 * When calling a car to a floor, what information does the controller need to know?

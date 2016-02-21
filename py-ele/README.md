@@ -15,6 +15,8 @@ Then, to run the generation:
 ```
 $ cd $REPO_ROOT
 $ swagger_py_codegen -s ./elevator.yml py-ele
+$ cd py-ele
+$ pip install -r requirements.txt
 ```
 
 FYI: The force-overridden files have already been added to the `.gitignore` file.
