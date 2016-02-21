@@ -34,7 +34,7 @@
       get:
         summary: "Number of stops"
         description: "Total number of stops in this elevator"
-        operationId: "floor_count"
+        operationId: "floorCount"
         responses:
           200:
             description: "count"

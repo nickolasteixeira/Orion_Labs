@@ -23,7 +23,7 @@ $ go get -u github.com/go-swagger/go-swagger/cmd/swagger
 Let's generate the server code, and run it:
 ```
 $ cd $REPO_ROOT/go-ele
-$ swagger generate server -f ../elevator.yml
+$ swagger generate server -f ../elevator.yml --include-main
 $ go install ./...
 $ $GOPATH/bin/lifty-server --port 5000
 >> serving lifty at http://127.0.0.1:5000
@@ -32,7 +32,7 @@ $ $GOPATH/bin/lifty-server --port 5000
 You should be able to see the server responding:
 ```
 $ curl http://127.0.0.1:5000/v1/welcome
->> 
+>>
 ```
 
 To run the unit tests:

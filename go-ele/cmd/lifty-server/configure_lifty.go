@@ -9,6 +9,8 @@ import (
 	"github.com/go-swagger/go-swagger/httpkit/middleware"
 
 	"github.com/onbeep/elevator-server/go-ele/restapi/operations"
+
+	"github.com/onbeep/elevator-server/go-ele/vator"
 )
 
 // This file is safe to edit. Once it exists it will not be overwritten
@@ -21,17 +23,50 @@ func configureAPI(api *operations.LiftyAPI) http.Handler {
 
 	api.JSONProducer = httpkit.JSONProducer()
 
+	// Declare the object for the Elevator
+	v, err := vator.NewVator([]string{"B1", "F1", "F2", "F3"}, 3)
+	if err != nil {
+		panic(err)
+	}
+
 	api.CurrentFloorHandler = operations.CurrentFloorHandlerFunc(func(params operations.CurrentFloorParams) middleware.Responder {
-		return middleware.NotImplemented("operation .CurrentFloor has not yet been implemented")
+		f := v.Current(params.CarID)
+		body := operations.CurrentFloorOKBodyBody{ID: f.ID, Name: f.Name}
+		return operations.NewCurrentFloorOK().WithPayload(body)
 	})
 	api.FloorCountHandler = operations.FloorCountHandlerFunc(func() middleware.Responder {
-		return middleware.NotImplemented("operation .FloorCount has not yet been implemented")
+		return operations.NewFloorCountOK().WithPayload(operations.FloorCountOKBodyBody{
+			Count: int32(len(v.Floors())),
+		})
 	})
 	api.InventoryHandler = operations.InventoryHandlerFunc(func(params operations.InventoryParams) middleware.Responder {
-		return middleware.NotImplemented("operation .Inventory has not yet been implemented")
+		if params.Pwd != "p4ssw3rd" {
+			return operations.NewInventoryUnauthorized()
+		}
+
+		body := []*operations.InventoryOKBodyItems0{}
+		for _, floor := range v.Floors() {
+			fid := floor.ID
+			fname := floor.Name
+			body = append(body, &operations.InventoryOKBodyItems0{
+				ID:   &fid,
+				Name: &fname,
+			})
+		}
+		for _, car := range v.Cars() {
+			cid := car.ID
+			cname := car.Name
+			body = append(body, &operations.InventoryOKBodyItems0{
+				ID:   &cid,
+				Name: &cname,
+			})
+		}
+
+		return operations.NewInventoryOK().WithPayload(body)
 	})
 	api.WelcomeHandler = operations.WelcomeHandlerFunc(func() middleware.Responder {
-		return middleware.NotImplemented("operation .Welcome has not yet been implemented")
+		// return middleware.NotImplemented("operation .Welcome has not yet been implemented")
+		return operations.NewWelcomeOK().WithPayload(operations.WelcomeOKBodyBody{"Welcome to the Elevator Server"})
 	})
 
 	api.ServerShutdown = func() {
