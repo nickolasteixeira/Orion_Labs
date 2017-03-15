@@ -1,6 +1,6 @@
 # Golang Version of the Elevator Server
 This doc should give you links to everything you need to know to develop
-the elevator-server code in Go (currently only tested in Go 1.5.3).
+the elevator-server code in Go (currently tested in Go 1.8.x).
 
 # Generate
 We are using the [`go-swagger`](github.com/go-swagger/go-swagger/cmd/swagger)
@@ -20,10 +20,19 @@ Now, install the code generation tool:
 $ go get -u github.com/go-swagger/go-swagger/cmd/swagger
 ```
 
-Let's generate the server code, and run it:
+Let's generate the server code:, and run it:
 ```
 $ cd $REPO_ROOT/go-ele
-$ swagger generate server -f ../elevator.yml --include-main
+$ swagger generate server -f ../elevator.yml
+```
+
+The generated code needs you to install some more libs:
+```
+$ go get -u github.com/go-openapi/runtime github.com/tylerb/graceful github.com/jessevdk/go-flags golang.org/x/net/context
+```
+
+Now build the executable, and run it:
+```
 $ go install ./...
 $ $GOPATH/bin/lifty-server --port 5000
 >> serving lifty at http://127.0.0.1:5000
@@ -32,7 +41,7 @@ $ $GOPATH/bin/lifty-server --port 5000
 You should be able to see the server responding:
 ```
 $ curl http://127.0.0.1:5000/v1/welcome
->>
+>> {"msg":"Welcome to the Elevator Server"}
 ```
 
 To run the unit tests:

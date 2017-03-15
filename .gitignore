@@ -67,7 +67,6 @@ schemas.py
 validators.py
 
 # Generated Files from https://github.com/go-swagger/go-swagger
-go-ele/cmd/lifty-server/doc.go
-go-ele/cmd/lifty-server/embedded_spec.go
-go-ele/cmd/lifty-server/main.go
-go-ele/restapi
+go-ele/cmd
+go-ele/restapi/*
+!go-ele/restapi/configure_lifty.go
