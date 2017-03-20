@@ -7,12 +7,15 @@ We are using the [`go-swagger`](github.com/go-swagger/go-swagger/cmd/swagger)
 tool to build the generic scaffolding for our project.
 
 First, let's get the repo, and put it in the correct location:
+
+`$GOPATH` should already be defined if you have a working GO install
+
 ```
 $ mkdir -p $GOPATH/src/github.com/onbeep/
 $ cd $GOPATH/src/github.com/onbeep/
 $ git clone git@github.com:OnBeep/elevator-server.git
 ```
-At this point we're reference `$GOPATH/src/github.com/onbeep/elevator-server`
+At this point we're referencing `$GOPATH/src/github.com/onbeep/elevator-server`
 as `$REPO_ROOT`.
 
 Now, install the code generation tool:
