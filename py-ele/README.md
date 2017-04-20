@@ -9,9 +9,14 @@ tool to build the generic [Flask](http://flask.pocoo.org/) and
 for our project.
 
 Basically, you need to install the tool:
-```$ pip install swagger-py-codegen```
+`$ pip install swagger-py-codegen`
 
+First, let's get the repo:
+```
+$ git clone git@github.com:OnBeep/elevator-server.git
+```
 Then, to run the generation:
+
 ```
 $ cd $REPO_ROOT
 $ swagger_py_codegen -s ./elevator.yml py-ele
