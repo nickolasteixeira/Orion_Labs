@@ -18,7 +18,8 @@ class Vator(object):
         first_floor = None
         self.floor_map = {}
         for ix in range(len(floors)):
-            fid = hashlib.sha1('floor-%s' % ix).hexdigest()
+            unhashed_floor = ('floor-%s' % ix).encode('utf-8')
+            fid = hashlib.sha1(unhashed_floor).hexdigest()
             self.floor_map[fid] = floors[ix]
             if first_floor is None:
                 first_floor = fid
@@ -26,7 +27,7 @@ class Vator(object):
         self.car_map = {}
         self.car_current_floor = {}
         for ix in range(car_ct):
-            name = 'Car-%s' % ix
+            name = ('Car-%s' % ix).encode('utf-8')
             cid = hashlib.sha1(name).hexdigest()
             self.car_map[cid] = name
             self.car_current_floor[cid] = first_floor
