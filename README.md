@@ -32,6 +32,10 @@ We chose to model an elevator in the hopes that the interactions are fairly well
 understood by just about everyone. There will be some secondary/support
 functionalities already
 provided, but you'll need to design and implement some of the main functionalities.
+For this exercise, we've provided unit tests for functionality to determine which car is
+closest to a given floor and to call a car to a given floor. Your task will be to
+design and implement endpoints for this functionality while ensuring your implementation
+passes the unit tests.
 Here are a few questions to get you thinking about what might be needed:
 * When calling a car to a floor, what information does the controller need to know?
 * What 'read-only' types of information should we plan for?
