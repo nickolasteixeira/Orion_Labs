@@ -2,7 +2,7 @@
 
 import unittest
 
-from api import Vator
+from .. import Vator
 
 class TestVator(unittest.TestCase):
 

@@ -1,7 +1,11 @@
 # -*- coding: utf-8 -*-
 from flask import Flask
 
-import v1
+# Handle Python3 import issues
+try:
+    import v1
+except ModuleNotFoundError:
+    from . import v1
 
 
 def create_app():
