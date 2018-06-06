@@ -75,3 +75,15 @@ func (v *Vator) Current(carID string) FloorDesc {
 	fid := v.carAtFloor[carID]
 	return v.lookupFloors[fid]
 }
+
+// GetNearestCar - which car is located on the closest floor to the given floorID
+func (v *Vator) GetNearestCar(floorID string) (carID string) {
+	// To be copmleted by candidate
+	return ""
+}
+
+// CallCar - move nearest car to the specified floor
+func (v *Vator) CallCar(floorID string) (err error) {
+	// To be completed by candidate
+	return nil
+}

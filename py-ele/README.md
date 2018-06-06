@@ -40,5 +40,5 @@ $ curl http://127.0.0.1:5000/v1/welcome
 To run the unit tests:
 ```
 $ cd $REPO_ROOT/py-ele/py_ele
-$ nosetests -sv
+$ pytest v1/api/tests/
 ```
