@@ -1,6 +1,6 @@
 # Python Version of the Elevator Server
 This doc should give you links to everything you need to know to develop
-the elevator-server code in Python (currently only tested in Python 2.7).
+the elevator-server code in Python (currently only tested in Python 3.6).
 
 # Generate
 We are using the [`swagger_py_codegen`](https://github.com/guokr/swagger-py-codegen)
