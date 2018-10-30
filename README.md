@@ -35,7 +35,8 @@ provided, but you'll need to design and implement some of the main functionaliti
 For this exercise, we've provided unit tests for functionality to determine which car is
 closest to a given floor and to call the closest car to a given floor. Your task will be to
 design and implement endpoints for this functionality while ensuring your implementation
-passes the unit tests.
+passes the unit tests. Please feel free to complete this challenge in either Python or Go,
+whichever is more comfortable for you.
 Here are a few questions to get you thinking about what might be needed:
 * When calling a car to a floor, what information does the controller need to know?
 * What 'read-only' types of information should we plan for?
