@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 from flask import Flask
-
 # Handle Python3 import issues
 try:
     import v1

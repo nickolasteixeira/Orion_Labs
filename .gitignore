@@ -70,3 +70,6 @@ validators.py
 go-ele/cmd
 go-ele/restapi/*
 !go-ele/restapi/configure_lifty.go
+
+#swp files
+*.swp

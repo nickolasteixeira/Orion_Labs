@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 import hashlib
+from pprint import pprint
 
 import flask_restful as restful
 
@@ -32,15 +33,26 @@ class Vator(object):
             self.car_map[cid] = name
             self.car_current_floor[cid] = self.first_floor
 
+        print("FLOOR LIST") 
+        pprint(self.floor_list)
+        print("FIRST FLOOR")
+        pprint(self.first_floor)
+        print("FLOOR MAP") 
+        pprint(self.floor_map)
+        print("CAR MAP")
+        pprint(self.car_map)
+        print("CAR CURRENT_FLOOR")
+        pprint(self.car_current_floor)
+
     def floor_count(self):
         return len(self.floor_list)
 
     def inventory(self):
         results = []
-        for fid, name in self.floor_map.iteritems():
+        for fid, name in self.floor_map.items():
             results.append({'id': fid, 'name': name})
-        for fid, name in self.car_map.iteritems():
-            results.append({'id': fid, 'name': name})
+        for fid, name in self.car_map.items():
+            results.append({'id': fid, 'name': name.decode("utf-8")})
         return results
 
     def current_floor(self, car_id):

@@ -4,7 +4,7 @@ from flask import request, g
 from . import Resource
 from .. import schemas
 from . import elevator
-
+from pprint import pprint
 
 class AdminInventoryPwd(Resource):
 
