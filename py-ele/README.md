@@ -67,7 +67,7 @@ You can find the updated `find_closest_car` and `call_car` methods in the `__ini
 
 I've added two new tests in the `v1/api/tests_vator.py` file  that use the same Elevator initialization array in the `__init__.py` file to make sure that regardless of the items in the array, as long as the items are passed in sequential desc to asc order as it relates to the floor map, the tests will pass.
 
-Currenty breaking with Python3 and Pip3
+Currenty breaking with Python3 and pytest
 
 ```
 $ cd $REPO_ROOT/py-ele/py_ele
