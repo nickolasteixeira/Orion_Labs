@@ -2,14 +2,6 @@
 import hashlib
 from pprint import pprint
 
-import flask_restful as restful
-
-from ..validators import request_validate, response_filter
-
-
-class Resource(restful.Resource):
-    method_decorators = [request_validate, response_filter]
-
 
 class Vator(object):
 
@@ -33,20 +25,8 @@ class Vator(object):
             self.car_map[cid] = name
             self.car_current_floor[cid] = self.first_floor
 
-        ''' 
-        print("FLOOR LIST")
-        pprint(self.floor_list)
-        print("FIRST FLOOR")
-        pprint(self.first_floor)
-        print("FLOOR MAP")
-        pprint(self.floor_map)
-        print("CAR MAP")
-        pprint(self.car_map)
-        print("CAR CURRENT FLOOR")
-        pprint(self.car_current_floor)
-        '''
-   
     
+
     def floor_count(self):
         return len(self.floor_list)
 
@@ -80,7 +60,7 @@ class Vator(object):
         # if not on that floor, it finds the closest car
         # Build a list of indexes of where all the cars at (based on the order of the floor_list that was passed
         # when initializing the object instance) 
-        letter = elevator.floor_map.get(floor_id)
+        letter = self.floor_map.get(floor_id)
         current_car_floor_list = []
         for fid, alpha in self.car_current_floor.items():
             current_car_floor_list.append(self.floor_list.index(self.floor_map[alpha]))
@@ -119,4 +99,4 @@ class Vator(object):
         return "{} has been moved to Floor {}".format(self.car_map[closest_car].decode("utf-8"), self.floor_map[floor_id])
 
 
-elevator = Vator(['B2', 'B1', 'MZ', 'F1', 'F2', 'F3', 'F4', 'F5', 'F6', 'F7'], 2)
+#elevator = Vator(['B2', 'B1', 'MZ', 'F1', 'F2', 'F3', 'F4', 'F5', 'F6', 'F7'], 2)

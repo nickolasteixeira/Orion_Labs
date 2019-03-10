@@ -2,7 +2,8 @@
 
 import unittest
 
-from .. import Vator
+from Vator import Vator
+from pprint import pprint
 
 class TestVator(unittest.TestCase):
 
@@ -80,7 +81,6 @@ class TestVator(unittest.TestCase):
         vator.call_car(fid_f)
         self.assertEqual(vator.car_current_floor[car_one], fid_f)
 
-
     def find_closest_car_2(self):
         vator = Vator(['B2', 'B1', 'MZ', 'F1', 'F2', 'F3', 'F4', 'F5', 'F6', 'F7'], 2)
         top_car, mid_car, bottom_car = list(vator.car_map.keys())
@@ -139,6 +139,8 @@ class TestVator(unittest.TestCase):
         fid_f = self._get_fid_by_name(vator, 'F4')
         vator.call_car(fid_f)
         self.assertEqual(vator.car_current_floor[car_one], fid_f)
+
+
 
 
 if __name__ == '__main__':
